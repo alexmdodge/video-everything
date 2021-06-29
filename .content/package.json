@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Simple hosting serving for testing HLS/DASH-CMAF video on as many platforms as possible.",
   "scripts": {
-    "start": "http-server -p 6000 ./public"
+    "start": "http-server --port 9000 --cors ./public"
   },
   "author": "Alex Dodge",
   "license": "MIT",
