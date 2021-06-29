@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Video.js Sample</title>
+
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-js {
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Video.js Sample</h1>
+
+  <video id="sample-video" class="video-js" controls data-setup="{}">
+    <source src="http://localhost:9000/sol-levante/master.m3u8" type="application/x-mpegURL" />
+  </video>
+
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+</body>
+
+</html>
