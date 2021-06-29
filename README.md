@@ -57,6 +57,12 @@ Samples available:
 * [Video.js](https://videojs.com/getting-started/)
 
 ### Android, Android TV, FireTV
+
+Inside of the `/android` and `/androidtv-firetv` directories respectively, open Android Studio to the root `build.gradle` files. Build and run the apps on your device of choice.
+
+Samples available:
+
+* [ExoPlayer](https://exoplayer.dev/hello-world.html)
 ### iOS, tvOS, macOS
 
 Inside of the `/ios-tvos-macos` directory, open Xcode to the project files. Build and run the apps on your device of choice, across the build targets.
@@ -65,8 +71,25 @@ Samples available:
 * [AVPlayer](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/GettingStarted/GettingStarted.html)
 
 ### Roku
+
+> TODO
+
 ### Tizen
+
+> TODO
+
 ### WebOS
+
+> TODO
+
 ### Chromecast
+
+> TODO
+
 ### PlayStation
+
+> TODO
+
 ### XBox
+
+> TODO
