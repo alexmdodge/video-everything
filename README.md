@@ -24,7 +24,7 @@ Optional things:
 
 ## Hosting Content
 
-You can point the samples at any content, but to get things off the ground this repo contains a sample encoded HLS/DASH-CMAF playlist with a single bitrate variation located in the `.content` directory.
+You can point the samples at any content, but to get things off the ground this repo contains a sample encoded HLS/DASH-CMAF playlist with a two bitrate variations located in the `.content` directory.
 
 Before moving on to each platform, pop into that directory and run:
 
