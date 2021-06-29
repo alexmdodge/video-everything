@@ -62,7 +62,7 @@ Samples available:
 Inside of the `/ios-tvos-macos` directory, open Xcode to the project files. Build and run the apps on your device of choice, across the build targets.
 
 Samples available:
-* [`AVPlayer`](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/GettingStarted/GettingStarted.html)
+* [AVPlayer](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/GettingStarted/GettingStarted.html)
 
 ### Roku
 ### Tizen
