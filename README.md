@@ -1,6 +1,6 @@
 # Video Everything
 
-Repository with minimal samples for playing HLS/DASH-CMAF video, across as many platforms as possible.
+Repository with minimal samples for playing HLS/DASH with CMAF video, across as many platforms as possible.
 
 ## Content and License
 
