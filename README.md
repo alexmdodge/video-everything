@@ -4,10 +4,16 @@ Repository with minimal samples for playing HLS/DASH-CMAF video, across as many 
 
 ## Content and License
 
-All test content in this repository was derived from the [Netflix Open Source Content Platform](https://opencontent.netflix.com/) and is license under the [Creative Commons Attribution 4.0 International Public License](https://www.google.com/url?q=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2Flegalcode&sa=D&sntz=1&usg=AFQjCNFm6hmkXeNuPlc9AohLWBxgxp3BCw)
+All test content in this repository was derived from the [Netflix Open Source Content Platform](https://opencontent.netflix.com/) which is licensed under the [Creative Commons Attribution 4.0 International Public License](https://www.google.com/url?q=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2Flegalcode&sa=D&sntz=1&usg=AFQjCNFm6hmkXeNuPlc9AohLWBxgxp3BCw)
 
 Currently the following titles exist as test media:
 * [Sol Levante](https://opencontent.netflix.com/#h.yk08awhc210g)
+
+## Content Preparation
+
+If you would like to prepare and use your own piece of media, the following section will walk you through the steps to properly encode and package sample content which can be played using the samples configured in this repo. Once packaged the content can be placed in the `.content/public` directory.
+
+> TODO
 
 ## Setup
 
