@@ -163,7 +163,7 @@ ffmpeg -i sollevante-main.mp4 -c:a copy \
 
 ### Content to Fragmented MP4s (fMP4s)
 
-At this point we have two renditions of h.264 AAC mp4 content. In order to package this as CMAF we'll need to first transcode the content so it's fragmented. Internally this is just converting the actual sections of media data (`mdata`) into consistently sized boxes, which in this case we'll make 6s to align with CMAF spec recommendations for compatibility between HLS and DASH.
+At this point we have two renditions of h.264 AAC mp4 content. In order to package this as CMAF we'll need to first transcode the content so it's fragmented. Internally this is just converting the actual sections of media data (`mdat`) into consistently sized boxes, which in this case we'll make 3s to align with CMAF spec recommendations for compatibility between HLS and DASH.
 
 To do the final steps we'll use [`bento4`](https://www.bento4.com/downloads/#downloads). This packaging libraries requires the input renditions to be packaged are first fragmented:
 
