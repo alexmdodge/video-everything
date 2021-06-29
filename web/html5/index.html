@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HTML5 Sample</title>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    video {
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>HTML5 Native Sample</h1>
+  <p>This sample only works in browser that support HLS and fMP4 (i.e. Safari)</p>
+
+  <video id="sample-video" controls>
+    <source src="http://localhost:9000/sol-levante/master.m3u8" type="application/x-mpegURL" />
+  </video>
+</body>
+
+</html>
