@@ -1,1 +1,3 @@
-{"ipAddress":"192.168.2.12"}
+{
+  "ipAddress": "IP ADDRESS OF THE CONTENT SERVER - THIS IS UPDATED AUTOMATICALLY WHEN RUNNING `npm run build`"
+}
