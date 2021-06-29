@@ -52,12 +52,18 @@ Then navigate to the individual pages. Note that the `html5` sample will only wo
 
 Samples available:
 
-* Native HTML5
-* Hls.js
-* Video.js
+* [Native HTML5](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html#//apple_ref/doc/uid/TP40009523-CH2-SW1)
+* [Hls.js](https://github.com/video-dev/hls.js)
+* [Video.js](https://videojs.com/getting-started/)
 
 ### Android, Android TV, FireTV
 ### iOS, tvOS, macOS
+
+Inside of the `/ios-tvos-macos` directory, open Xcode to the project files. Build and run the apps on your device of choice, across the build targets.
+
+Samples available:
+* [`AVPlayer`](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/GettingStarted/GettingStarted.html)
+
 ### Roku
 ### Tizen
 ### WebOS
