@@ -1,0 +1,14 @@
+{
+  "name": "video-everything-roku",
+  "version": "0.1.1",
+  "description": "All open source Roku samples for playing HLS/DASH-CMAF video",
+  "scripts": {
+    "replaceContentIp": "node ./scripts/replaceContentIp.js",
+    "build": "npm run replaceContentIp && bsc"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "brighterscript": "^0.39.4",
+    "local-ip": "^2.0.0"
+  }
+}

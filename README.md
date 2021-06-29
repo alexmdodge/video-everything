@@ -68,7 +68,17 @@ Samples available:
 
 ### Roku
 
-> TODO
+Inside of the `/roku` directory:
+
+```sh
+npm install
+npm run build
+```
+There will be build generated here: `./out/roku.zip`
+
+To view on a Roku device, make sure your Roku is in [developer mode](https://developer.roku.com/en-ca/docs/developer-program/getting-started/developer-setup.md) and install the application by uploading the generated zip file to the Development Application Installer screen.
+
+Note: the Roku device must be on the same network as the server hosting the content. The build command assumes your are hosting the content on the machine you are building on.
 
 ### Tizen
 
