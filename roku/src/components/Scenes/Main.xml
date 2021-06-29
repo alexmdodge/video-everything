@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="Main" extends="Scene">
+  <script type="text/brightscript" uri="Main.brs" />
+  <script type="text/brightscript" uri="pkg:/source/content_helper.brs" />
+  <children>
+    <Video id="videoPlayer" />
+  </children>
+</component>
