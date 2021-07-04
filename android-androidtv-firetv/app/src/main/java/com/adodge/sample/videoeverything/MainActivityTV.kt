@@ -14,7 +14,7 @@ class MainActivityTV : AppCompatActivity() {
         playVideo()
     }
 
-    fun playVideo() {
+    private fun playVideo() {
         val player: SimpleExoPlayer = SimpleExoPlayer.Builder(applicationContext).build()
 
         // Bind the player to the view.
@@ -22,7 +22,6 @@ class MainActivityTV : AppCompatActivity() {
 
         // Build the media item.
         val mediaItem: MediaItem = MediaItem.fromUri("http://10.0.2.2:9000/sol-levante/master.m3u8")
-//        val mediaItem: MediaItem = MediaItem.fromUri("https://c3de9703f5e8.ngrok.io/sol-levante/master.m3u8")
 
         // Set the media item to be played.
         player.setMediaItem(mediaItem)

@@ -1,6 +1,6 @@
 # Video Everything
 
-Repository with minimal samples for playing HLS/DASH-CMAF video, across as many platforms as possible.
+Repository with minimal samples for playing HLS/DASH with CMAF video, across as many platforms as possible.
 
 ## Content and License
 
@@ -24,7 +24,7 @@ Optional things:
 
 ## Hosting Content
 
-You can point the samples at any content, but to get things off the ground this repo contains a sample encoded HLS/DASH-CMAF playlist with a single bitrate variation located in the `.content` directory.
+You can point the samples at any content, but to get things off the ground this repo contains a sample encoded HLS/DASH with CMAF playlist with a two bitrate variations located in the `.content` directory.
 
 Before moving on to each platform, pop into that directory and run:
 
@@ -68,7 +68,17 @@ Samples available:
 
 ### Roku
 
-> TODO
+Inside of the `/roku` directory:
+
+```sh
+npm install
+npm run build
+```
+There will be build generated here: `./out/roku.zip`
+
+To view on a Roku device, make sure your Roku is in [developer mode](https://developer.roku.com/en-ca/docs/developer-program/getting-started/developer-setup.md) and install the application by uploading the generated zip file to the Development Application Installer screen.
+
+Note: the Roku device must be on the same network as the server hosting the content. The build command assumes your are hosting the content on the machine you are building on.
 
 ### Tizen
 
@@ -153,7 +163,7 @@ ffmpeg -i sollevante-main.mp4 -c:a copy \
 
 ### Content to Fragmented MP4s (fMP4s)
 
-At this point we have two renditions of h.264 AAC mp4 content. In order to package this as CMAF we'll need to first transcode the content so it's fragmented. Internally this is just converting the actual sections of media data (`mdata`) into consistently sized boxes, which in this case we'll make 6s to align with CMAF spec recommendations for compatibility between HLS and DASH.
+At this point we have two renditions of h.264 AAC mp4 content. In order to package this as CMAF we'll need to first transcode the content so it's fragmented. Internally this is just converting the actual sections of media data (`mdat`) into consistently sized boxes, which in this case we'll make 3s to align with CMAF spec recommendations for compatibility between HLS and DASH.
 
 To do the final steps we'll use [`bento4`](https://www.bento4.com/downloads/#downloads). This packaging libraries requires the input renditions to be packaged are first fragmented:
 
