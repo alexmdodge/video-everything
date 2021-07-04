@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Media Source Extensions Sample</title>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    video {
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Media Source Extensions Sample</h1>
+  <p>This sample page uses features that are not available on IE11 and lower</p>
+
+  <video id="sample-video" controls style="background-color: lightgray;"></video>
+
+  <script async>
+    var vidElement = document.getElementById('sample-video');
+    var mediaSource = null
+
+    if (window.MediaSource) {
+      console.log('[MSE Sample] Creating media source and setting up listeners')
+
+      mediaSource = new MediaSource();
+      vidElement.src = URL.createObjectURL(mediaSource);
+
+      mediaSource.addEventListener('sourceopen', onSourceOpened);
+    } else {
+      console.error("The Media Source Extensions API is not supported.")
+    }
+
+    async function onSourceOpened(event) {
+      URL.revokeObjectURL(vidElement.src);
+
+      var videoMime = 'video/mp4; codecs="avc1.42C01E"';
+      var audioMime = 'video/mp4; codecs="mp4a.40.2"';
+
+      console.log('[MSE Sample] Verifying video codecs are supported')
+
+      var isVideoSupported = MediaSource.isTypeSupported(videoMime)
+      var isAudioSupported = MediaSource.isTypeSupported(audioMime)
+
+      if (!isAudioSupported || !isVideoSupported) {
+        console.error('Mime types are not support: ', videoMime, audioMime)
+        return
+      }
+
+      console.log('[MSE Sample] Video codecs are supported: ', videoMime, audioMime)
+      console.log('[MSE Sample] Creating source buffers')
+
+      var sourceBufferVideo = mediaSource.addSourceBuffer(videoMime);
+      var sourceBufferAudio = mediaSource.addSourceBuffer(audioMime);
+
+      console.log('[MSE Sample] Source buffers created')
+
+      console.log('[MSE Sample] Setting up convenience methods for appending')
+
+      var getMediaBuffer = async function (url) {
+        var res = await fetch(url)
+        return res.arrayBuffer()
+      }
+
+      var appendVideoToBuffer = async function (url) {
+        var buffer = await getMediaBuffer(url)
+        sourceBufferVideo.appendBuffer(buffer)
+      }
+
+      var appendAudioToBuffer = async function (url) {
+        var buffer = await getMediaBuffer(url)
+        sourceBufferAudio.appendBuffer(buffer)
+      }
+
+      // NOTE: A follow up sample is required here, which demonstrates:
+      //  -- Parsing the DASH MPD or HLS Manifest to dynamically append segments
+      //  -- Detecting network bandwidth and performing adaptive bitrate switching
+
+      console.log('[MSE Sample] Downloading and appending video and audio buffers')
+
+      var baseVideoUrl = 'http://localhost:9000/sol-levante/video/avc1/1/'
+      var baseAudioUrl = 'http://localhost:9000/sol-levante/audio/und/mp4a.40.2/'
+
+      await appendVideoToBuffer(baseVideoUrl + 'init.mp4')
+      await appendAudioToBuffer(baseAudioUrl + 'init.mp4')
+
+      await appendVideoToBuffer(baseVideoUrl + 'seg-1.m4s')
+      await appendAudioToBuffer(baseAudioUrl + 'seg-1.m4s')
+
+      await appendVideoToBuffer(baseVideoUrl + 'seg-2.m4s')
+      await appendAudioToBuffer(baseAudioUrl + 'seg-2.m4s')
+
+      await appendVideoToBuffer(baseVideoUrl + 'seg-3.m4s')
+      await appendAudioToBuffer(baseAudioUrl + 'seg-3.m4s')
+
+      await appendVideoToBuffer(baseVideoUrl + 'seg-4.m4s')
+      await appendAudioToBuffer(baseAudioUrl + 'seg-4.m4s')
+
+      await appendVideoToBuffer(baseVideoUrl + 'seg-5.m4s')
+      await appendAudioToBuffer(baseAudioUrl + 'seg-5.m4s')
+
+      // Note: There is a difference in the number of audio and video segments
+      await appendAudioToBuffer(baseAudioUrl + 'seg-6.m4s')
+
+      // Use the final buffer being appended to to trigger the end of stream
+      sourceBufferAudio.addEventListener('updateend', e => {
+        if (!sourceBufferAudio.updating && mediaSource.readyState === 'open') {
+          console.log('[MSE Sample] Notifying media source end of stream')
+
+          mediaSource.endOfStream();
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
